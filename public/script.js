@@ -29,6 +29,21 @@ const get = () => {
     });
 }
 
+const getById = () => {
+  let id = DOM.readId.value;
+  let output = DOM.listOutput;
+  axios.get(`/read/` + id)
+    .then((response) => {
+      output.innerHTML = ` `;
+      for (let item of response.data) {
+      writeItem(item);
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+}
+
+  
 // POST function
 const post = () => {
   axios.post(`/create`, {   name : DOM.inputName.value,
@@ -36,26 +51,11 @@ const post = () => {
                             price : DOM.inputPrice.value})
     .then((response) => {
       console.log(response);
-      get();
     }).catch((err) => {
       console.log(err);
     });
 }
 
-// UPDATE function
-const update = () => {
-  let id = DOM.updateId.value;
-  axios.put(`/update/`+id, { name : DOM.updateName.value,
-                             description : DOM.updateDescription.value, 
-                             price : DOM.updatePrice.value,
-                          })
-    .then((response) => {
-      console.log(response);
-      get();
-    }).catch((err) => {
-      console.log(err);
-    });
-}
 
 const deleteById = () => {
   let id = DOM.deleteId.value;
@@ -71,9 +71,9 @@ const deleteById = () => {
 
 
 // set up the buttons' on click events
+DOM.buttonViewAll.onclick = () => get();
 DOM.buttonCreate.onclick = () => post();
-DOM.buttonUpdate.onclick = () => update();
+DOM.buttonReadById.onclick = () => getById();
 DOM.buttonDelete.onclick = () => deleteById();
-
 // run the get function on page load
-get();
+// get();

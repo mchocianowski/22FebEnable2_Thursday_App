@@ -20,18 +20,31 @@
                 </form>
             </div>
 
-            <div class="col-4">
+
+            <div>
+                <button type="button" class="btn btn-primary mt-2" id="buttonViewAll">View items</button>
+            </div>
+
+            <div class="col-6">
                 <form class="mb-2">
-                    <h2>Update</h2>
-                    <input type="text" id="updateName" class="form-control" placeholder="enter item name to update" />
-                    <input type="text" id="updateDescription" class="form-control mt-2" placeholder="enter item description to update" />
-                    <input type="number" id="updatePrice" class="form-control mt-2" placeholder="enter item price to update" />
-                    <input type="number" id="updateId" class="form-control mt-2" placeholder="enter id of item to update" />
-                    <button type="button" class="btn btn-primary mt-2" id="buttonUpdate">Update</button>
-                    <input type="text" style="display: none;" />
+                    <ul id="listOutput"></ul>
                 </form>
             </div>
-            <a type="button" class="btn btn-primary mt-2" id="buttonUpdateLink" href="update.html">Update</button>
+
+            <div>
+            <a type="button" class="btn btn-primary mt-2" id="buttonUpdateLink" href="update.html">Update</a>
+            </div>
+
+
+            <div class="col-4">
+                <form class="mb-2">
+                    <h2>Find an Item</h2>
+            <input type="number" id="readId" class="form-control mt-2" placeholder="enter id of item to find" />
+                    <button type="button" class="btn btn-primary mt-2" id="buttonReadById">Search</button>
+                </form>
+            </div>
+
+
             <div class="col-4">
                 <form class="mb-2">
                     <h2>Delete</h2>
@@ -40,13 +53,7 @@
                 </form>
             </div>
 
-            <div class="col-6">
-                <form class="mb-2">
-                    <h2>Read All</h2>
-                    <ul id="listOutput"></ul>
-                </form>
-
-            </div>
+            
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
